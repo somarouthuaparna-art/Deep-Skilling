@@ -1,0 +1,42 @@
+Docker Commands
+Check Docker Version
+docker --version
+Display Docker Information
+docker info
+Download an Image
+docker pull ubuntu
+List Images
+docker images
+Run a Container
+docker run ubuntu
+Run Interactive Container
+docker run -it ubuntu
+List Running Containers
+docker ps
+List All Containers
+docker ps -a
+Stop a Container
+docker stop <container_id>
+Remove a Container
+docker rm <container_id>
+Remove an Image
+docker rmi <image_name>
+Build an Image
+docker build -t myapp .
+Run a Custom Image
+docker run myapp
+View Container Logs
+docker logs <container_id>
+Execute Commands Inside a Container
+docker exec -it <container_id> bash
+Pull hello-world Image
+docker pull hello-world
+Run hello-world Container
+docker run hello-world
+Docker Compose
+Start services
+
+docker compose up
+Stop services
+
+docker compose down
