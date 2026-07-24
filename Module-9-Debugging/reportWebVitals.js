@@ -1,25 +1,32 @@
-import { add, subtract, multiply, divide } from "./Calculator";
+import React, { Component } from "react";
 
-describe("Calculator Tests", () => {
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
 
-    test("should add two numbers", () => {
-        expect(add(10, 5)).toBe(15);
-    });
+    this.state = {
+      hasError: false
+    };
+  }
 
-    test("should subtract two numbers", () => {
-        expect(subtract(10, 5)).toBe(5);
-    });
+  static getDerivedStateFromError(error) {
+    return {
+      hasError: true
+    };
+  }
 
-    test("should multiply two numbers", () => {
-        expect(multiply(10, 5)).toBe(50);
-    });
+  componentDidCatch(error, info) {
+    console.log("Error caught:", error);
+    console.log("Error info:", info);
+  }
 
-    test("should divide two numbers", () => {
-        expect(divide(10, 5)).toBe(2);
-    });
+  render() {
+    if (this.state.hasError) {
+      return <h2>Something went wrong.</h2>;
+    }
 
-    test("should handle divide by zero", () => {
-        expect(divide(10, 0)).toBe("Cannot divide by zero");
-    });
+    return this.props.children;
+  }
+}
 
-});
+export default ErrorBoundary;

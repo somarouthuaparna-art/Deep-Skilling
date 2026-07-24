@@ -1,11 +1,11 @@
 {
-  "name": "calculatorapp",
+  "name": "errorboundaryapp",
   "version": "0.1.0",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "calculatorapp",
+      "name": "errorboundaryapp",
       "version": "0.1.0",
       "dependencies": {
         "@testing-library/dom": "^10.4.1",

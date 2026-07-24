@@ -1,11 +1,34 @@
-import Calculator from "./Calculator";
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div>
-      <Calculator />
-    </div>
-  );
+class BuggyCounter extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      counter: 0
+    };
+  }
+
+  handleClick = () => {
+    this.setState(({ counter }) => ({
+      counter: counter + 1
+    }));
+  };
+
+  render() {
+    if (this.state.counter === 5) {
+      throw new Error("I crashed!");
+    }
+
+    return (
+      <div>
+        <h3>Counter: {this.state.counter}</h3>
+        <button onClick={this.handleClick}>
+          Increment
+        </button>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default BuggyCounter;
